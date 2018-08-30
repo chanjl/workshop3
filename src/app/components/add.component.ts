@@ -27,10 +27,10 @@ export class AddComponent implements OnInit {
   todoForm: NgForm;
 
   processToDo(){
-    console.log('processing');
-    for (let i in this.todoForm.value) {
-      console.log('i = ', i, ' v= ', this.todoForm.value[i]);
-    }
+    // console.log('processing');
+    // for (let i in this.todoForm.value) {
+    //   console.log('i = ', i, ' v= ', this.todoForm.value[i]);
+    // }
 
     if (moment().isAfter(moment(this.todoForm.value["task-duedate"]))) {
       alert('You cannot add a task with a due date in the past');

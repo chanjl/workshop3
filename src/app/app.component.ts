@@ -10,7 +10,11 @@ import { ToDo } from './components/add.component';
 export class AppComponent {
   title = 'workshop3';
 
-  taskList: ToDo [] = [];
+  taskList: ToDo [] = [ {
+    description: "Pick a Rose",
+    priority: "Low",
+    due: "16 Apr"
+  }];
 
   addToList(eventObject: ToDo) {
     console.log('added: ', eventObject);

@@ -6,10 +6,13 @@
       </div>
       <div>
         <mat-form-field>
-          <input required matInput #descriptionField="ngModel" name="task-description" ngModel>
+          <input required matInput #descriptionField="ngModel" minlength="5" name="task-description" ngModel>
           <mat-hint *ngIf="descriptionField.invalid">
             Please enter a description
           </mat-hint>
+          <mat-error *ngIf="descriptionField.hasError('minlength')">
+            Please enter a description longer than 5 chars
+          </mat-error>
         </mat-form-field>
       </div>
     </div>
@@ -18,11 +21,11 @@
         <span><b>Priority:</b></span>
       </div>
       <div>
-          <mat-radio-group name="task-priority" labelPosition='before' required ngModel fxLayout="column" fxLayoutGap="2vw">
-            <mat-radio-button class="radiobutton" value="High">High</mat-radio-button>
-            <mat-radio-button class="radiobutton" value="Medium">Medium</mat-radio-button>
-            <mat-radio-button class="radiobutton" value="Low">Low</mat-radio-button>
-          </mat-radio-group>
+        <mat-radio-group name="task-priority" labelPosition='before' required ngModel fxLayout="column" fxLayoutGap="2vw">
+          <mat-radio-button class="radiobutton" value="High">High</mat-radio-button>
+          <mat-radio-button class="radiobutton" value="Medium">Medium</mat-radio-button>
+          <mat-radio-button class="radiobutton" value="Low">Low</mat-radio-button>
+        </mat-radio-group>
       </div>
     </div>
     <div fxLayout="column row" fxLayoutAlign="center">
