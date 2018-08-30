@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <div fxLayout="row column" fxLayoutAlign="center center">
+    <img src="../../assets/walking.png" class="task">
+    <span>Task</span>
+  </div>
+</mat-toolbar>
+<div *ngIf="myList.length <=0">
+  <h4>Your Task List Is Empty</h4>
+</div>
+<div *ngFor="let l of myList; let ind=index;">
+  <mat-card>
+    <mat-card-title>
+      {{l.description}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{l.priority}}&nbsp;&nbsp;&nbsp;&nbsp;{{l.due}}
+    </mat-card-subtitle>
+  </mat-card>
+</div>

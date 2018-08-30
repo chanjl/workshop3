@@ -1,0 +1,48 @@
+<form #todoForm="ngForm" (ngSubmit)="processToDo()">
+  <div fxLayout="row column" fxLayoutAlign="space-around center" fxLayoutGap="2vw">
+    <div fxLayout="column row" fxLayoutAlign="center">
+      <div>
+        <span><b>Description:</b></span>
+      </div>
+      <div>
+        <mat-form-field>
+          <input required matInput #descriptionField="ngModel" name="task-description" ngModel>
+          <mat-hint *ngIf="descriptionField.invalid">
+            Please enter a description
+          </mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="column row" fxLayoutAlign="space-between" fxLayoutGap="2vw">
+      <div>
+        <span><b>Priority:</b></span>
+      </div>
+      <div>
+          <mat-radio-group name="task-priority" labelPosition='before' required ngModel fxLayout="column" fxLayoutGap="2vw">
+            <mat-radio-button class="radiobutton" value="High">High</mat-radio-button>
+            <mat-radio-button class="radiobutton" value="Medium">Medium</mat-radio-button>
+            <mat-radio-button class="radiobutton" value="Low">Low</mat-radio-button>
+          </mat-radio-group>
+      </div>
+    </div>
+    <div fxLayout="column row" fxLayoutAlign="center">
+      <div>
+        <span><b>Due:</b></span>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" #dateField="ngModel" name="task-duedate" required ngModel>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-hint *ngIf="dateField.invalid">
+            Please select a date
+          </mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayoutAlign="end">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!todoForm.valid">Add</button>
+    </div>
+  </div>
+
+</form>
